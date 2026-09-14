@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MicroBlog</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <i class="fa-solid fa-feather-pointed"></i>
+        <span>MicroBlog</span>
+    </div>
+
+    <nav>
+        <a href="#home" class="nav-link active" data-page="home">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+
+        <a href="#explore" class="nav-link" data-page="explore">
+            <i class="fa-solid fa-hashtag"></i>
+            <span>Explore</span>
+        </a>
+
+        <a href="#profile" class="nav-link" data-page="profile">
+            <i class="fa-regular fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <button class="notification-btn" id="notificationBtn">
+        <i class="fa-regular fa-bell"></i>
+        <span class="notification-dot"></span>
+    </button>
+</header>
+
+
+<main class="layout">
+
+<section class="feed">
+
+    <div class="page-title" id="pageTitle">
+        <h1>Home</h1>
+        <p>See what's happening around you.</p>
+    </div>
+
+
+    <!-- CREATE POST -->
+    <div class="create-post">
+        <h2>Create a post</h2>
+
+        <textarea id="postInput"
+        maxlength="280"
+        placeholder="What's on your mind?"></textarea>
+
+        <div class="post-tools">
+            <span id="charCount">0 / 280</span>
+        </div>
+
+        <div class="post-actions">
+
+            <div class="action-icons">
+
+                <button id="imageBtn" title="Add image">
+                    <i class="fa-regular fa-image"></i>
+                </button>
+
+                <button id="emojiBtn" title="Add emoji">
+                    <i class="fa-regular fa-face-smile"></i>
+                </button>
+
+                <button id="locationBtn" title="Add location">
+                    <i class="fa-solid fa-location-dot"></i>
+                </button>
+
+                <input type="file" id="imageInput" accept="image/*" hidden>
+
+            </div>
+
+            <button id="postBtn">Post</button>
+        </div>
+
+        <div id="emojiPicker" class="emoji-picker">
+            <button>😀</button>
+            <button>😂</button>
+            <button>😍</button>
+            <button>🔥</button>
+            <button>🚀</button>
+            <button>❤️</button>
+            <button>👍</button>
+            <button>😊</button>
+            <button>💻</button>
+            <button>☕</button>
+            <button>🎯</button>
+            <button>✨</button>
+        </div>
+    </div>
+
+
+    <!-- POSTS -->
+    <div id="posts">
+
+        <article class="post">
+
+            <div class="avatar blue">S</div>
+
+            <div class="post-content">
+
+                <div class="post-header">
+
+                    <div>
+                        <strong>suthan</strong>
+                        <span>@suthan_07 · 2m</span>
+                    </div>
+
+                    <button class="more-btn">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+
+                    <div class="post-menu">
+                        <button>Save Post</button>
+                        <button>Copy Link</button>
+                        <button>Report</button>
+                    </div>
+
+                </div>
+
+                <p>
+                    Just finished building my first micro-blogging website. 🚀<br>
+                    Feels amazing to see it live. 😊
+                </p>
+
+                <div class="post-footer">
+
+                    <button class="like-btn">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>12</span>
+                    </button>
+
+                    <button class="comment-btn">
+                        <i class="fa-regular fa-comment"></i>
+                        <span>3</span>
+                    </button>
+
+                    <button class="share-btn">
+                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                        <span>Share</span>
+                    </button>
+
+                </div>
+
+                <div class="comments">
+                    <div class="comment">
+                        <b>Alex</b>
+                        <span>Great work! 🔥</span>
+                    </div>
+
+                    <div class="comment">
+                        <b>John</b>
+                        <span>Looks amazing!</span>
+                    </div>
+
+                    <div class="comment-input">
+                        <input placeholder="Write a comment...">
+                        <button>Send</button>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+
+
+        <article class="post">
+
+            <div class="avatar purple">S</div>
+
+            <div class="post-content">
+
+                <div class="post-header">
+
+                    <div>
+                        <strong>Sarah</strong>
+                        <span>@sarah_codes · 15m</span>
+                    </div>
+
+                    <button class="more-btn">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+
+                    <div class="post-menu">
+                        <button>Save Post</button>
+                        <button>Copy Link</button>
+                        <button>Report</button>
+                    </div>
+
+                </div>
+
+                <p>
+                    Learning JavaScript is fun! 💻<br>
+                    One step at a time. Consistency is the key 🔑
+                </p>
+
+                <div class="post-footer">
+
+                    <button class="like-btn">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>25</span>
+                    </button>
+
+                    <button class="comment-btn">
+                        <i class="fa-regular fa-comment"></i>
+                        <span>5</span>
+                    </button>
+
+                    <button class="share-btn">
+                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                        <span>Share</span>
+                    </button>
+
+                </div>
+
+                <div class="comments">
+
+                    <div class="comment">
+                        <b>Mike</b>
+                        <span>Keep going! 💪</span>
+                    </div>
+
+                    <div class="comment-input">
+                        <input placeholder="Write a comment...">
+                        <button>Send</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </article>
+
+
+        <article class="post">
+
+            <div class="avatar green">K</div>
+
+            <div class="post-content">
+
+                <div class="post-header">
+
+                    <div>
+                        <strong>Karthik</strong>
+                        <span>@karthik_dev · 1h</span>
+                    </div>
+
+                    <button class="more-btn">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+
+                    <div class="post-menu">
+                        <button>Save Post</button>
+                        <button>Copy Link</button>
+                        <button>Report</button>
+                    </div>
+
+                </div>
+
+                <p>
+                    Coffee + Code = Best Combo ☕ 💻<br>
+                    What's your productivity secret? 🤔
+                </p>
+
+                <div class="post-footer">
+
+                    <button class="like-btn">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>18</span>
+                    </button>
+
+                    <button class="comment-btn">
+                        <i class="fa-regular fa-comment"></i>
+                        <span>4</span>
+                    </button>
+
+                    <button class="share-btn">
+                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                        <span>Share</span>
+                    </button>
+
+                </div>
+
+                <div class="comments">
+
+                    <div class="comment-input">
+                        <input placeholder="Write a comment...">
+                        <button>Send</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+    <!-- PROFILE CARD -->
+    <div class="profile-card">
+
+        <div class="cover"></div>
+
+        <div class="profile-info">
+
+            <div class="profile-avatar" id="profileAvatar">S</div>
+
+            <button class="edit-profile" id="editProfile">
+                Edit Profile
+            </button>
+
+            <h2 id="profileName">suthan</h2>
+            <p class="username" id="profileUsername">@suthan_07</p>
+
+            <p class="bio" id="profileBio">
+                Full Stack Developer | Tech Enthusiast
+            </p>
+
+            <div class="profile-stats">
+
+                <div>
+                    <strong id="postCount">25</strong>
+                    <span>Posts</span>
+                </div>
+
+                <div>
+                    <strong>120</strong>
+                    <span>Following</span>
+                </div>
+
+                <div>
+                    <strong>300</strong>
+                    <span>Followers</span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- TRENDING -->
+    <div class="trending">
+
+        <h2>Trending Topics</h2>
+
+        <div class="trend">
+            <button>#100DaysOfCode</button>
+            <span>12.5K posts</span>
+        </div>
+
+        <div class="trend">
+            <button>#JavaScript</button>
+            <span>8.7K posts</span>
+        </div>
+
+        <div class="trend">
+            <button>#WebDevelopment</button>
+            <span>6.2K posts</span>
+        </div>
+
+        <div class="trend">
+            <button>#CodingLife</button>
+            <span>4.1K posts</span>
+        </div>
+
+        <div class="trend">
+            <button>#MicroBlog</button>
+            <span>3.6K posts</span>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2024 MicroBlog. All rights reserved.
+    </footer>
+
+</aside>
+
+</main>
+
+
+<!-- NOTIFICATION PANEL -->
+<div class="notification-panel" id="notificationPanel">
+
+    <div class="notification-header">
+        <h3>Notifications</h3>
+        <button id="closeNotifications">×</button>
+    </div>
+
+    <div class="notification-item">
+        <div class="notification-icon">❤️</div>
+        <p><b>Sarah</b> liked your post.</p>
+    </div>
+
+    <div class="notification-item">
+        <div class="notification-icon">💬</div>
+        <p><b>Alex</b> commented on your post.</p>
+    </div>
+
+    <div class="notification-item">
+        <div class="notification-icon">👤</div>
+        <p><b>John</b> started following you.</p>
+    </div>
+
+</div>
+
+
+<!-- MODAL -->
+<div class="modal" id="profileModal">
+
+    <div class="modal-box">
+
+        <button class="close-modal" id="closeModal">×</button>
+
+        <h2>Edit Profile</h2>
+
+        <label>Name</label>
+        <input id="editName" value="suthan">
+
+        <label>Username</label>
+        <input id="editUsername" value="suthan_07">
+
+        <label>Bio</label>
+        <textarea id="editBio">Full Stack Developer | Tech Enthusiast</textarea>
+
+        <button class="save-profile" id="saveProfile">
+            Save Changes
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

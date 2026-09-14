@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FoodieGo - Food Delivery</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+  
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo">
+        <span>🍴</span>
+        Foodie<span>Go</span>
+    </div>
+
+    <div class="location">
+        📍
+        <div>
+            <small>Deliver to</small>
+            <strong id="headerLocation">
+                Chennai, Tamil Nadu
+            </strong>
+        </div>
+    </div>
+
+    <div class="header-actions">
+
+        <button
+            class="icon-btn"
+            id="darkModeBtn"
+            title="Dark mode"
+        >
+            🌙
+        </button>
+
+        <button
+            class="icon-btn"
+            id="ordersBtn"
+            title="Orders"
+        >
+            📦
+        </button>
+
+        <button
+            class="cart-button"
+            id="cartBtn"
+        >
+            🛒
+            <span>Cart</span>
+            <b id="cartCount">0</b>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-tag">
+            🔥 Delicious food, delivered fast
+        </span>
+
+        <h1>
+            Good food.
+            <br>
+            <span>Good mood.</span>
+        </h1>
+
+        <p>
+            Discover your favorite meals from the best
+            restaurants around you.
+        </p>
+
+        <div class="hero-search">
+
+            <span>🔍</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search for pizza, burger, biryani..."
+            >
+
+            <button id="searchBtn">
+                Search
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img
+            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=85"
+            alt="Delicious food"
+        >
+
+        <div class="delivery-card">
+            🚴
+            <div>
+                <strong>Fast Delivery</strong>
+                <small>30 - 40 mins</small>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+
+    <!-- CATEGORIES -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div>
+                <h2>What are you craving?</h2>
+                <p>Choose from your favorite food</p>
+            </div>
+
+        </div>
+
+
+        <div class="categories">
+
+            <button class="category active" data-category="All">
+                <span>🍽️</span>
+                <strong>All</strong>
+            </button>
+
+            <button class="category" data-category="Pizza">
+                <span>🍕</span>
+                <strong>Pizza</strong>
+            </button>
+
+            <button class="category" data-category="Burger">
+                <span>🍔</span>
+                <strong>Burger</strong>
+            </button>
+
+            <button class="category" data-category="Biryani">
+                <span>🍛</span>
+                <strong>Biryani</strong>
+            </button>
+
+            <button class="category" data-category="South Indian">
+                <span>🥞</span>
+                <strong>South Indian</strong>
+            </button>
+
+            <button class="category" data-category="Chinese">
+                <span>🥡</span>
+                <strong>Chinese</strong>
+            </button>
+
+            <button class="category" data-category="Desserts">
+                <span>🍰</span>
+                <strong>Desserts</strong>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESTAURANTS -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div>
+                <h2>Popular restaurants</h2>
+                <p>Order from your favorite places</p>
+            </div>
+
+            <button
+                class="see-all"
+                id="seeAllBtn"
+            >
+                See all →
+            </button>
+
+        </div>
+
+
+        <div
+            class="restaurant-grid"
+            id="restaurantGrid"
+        ></div>
+
+    </section>
+
+
+    <!-- MENU -->
+
+    <section
+        class="section menu-section"
+        id="menuSection"
+    >
+
+        <div class="section-heading">
+
+            <div>
+                <h2 id="menuTitle">
+                    Select a restaurant
+                </h2>
+
+                <p id="menuSubtitle">
+                    Choose a restaurant to see its menu
+                </p>
+            </div>
+
+            <button
+                class="back-btn"
+                id="backToRestaurants"
+            >
+                ← Restaurants
+            </button>
+
+        </div>
+
+        <div
+            class="menu-grid"
+            id="menuGrid"
+        ></div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <div class="feature">
+            <span>🚴</span>
+            <div>
+                <strong>Fast delivery</strong>
+                <p>Hot food at your doorstep</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <span>🔒</span>
+            <div>
+                <strong>Secure checkout</strong>
+                <p>Your order is safe with us</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <span>⭐</span>
+            <div>
+                <strong>Top restaurants</strong>
+                <p>Highly rated food partners</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <span>💝</span>
+            <div>
+                <strong>Great offers</strong>
+                <p>Save more on every order</p>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= CART DRAWER ================= -->
+
+<div
+    class="overlay"
+    id="overlay"
+></div>
+
+
+<aside
+    class="cart-drawer"
+    id="cartDrawer"
+>
+
+    <div class="cart-header">
+
+        <div>
+            <h2>Your Cart</h2>
+            <p id="cartRestaurant">
+                No items added
+            </p>
+        </div>
+
+        <button
+            class="close-btn"
+            id="closeCart"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div
+        class="cart-items"
+        id="cartItems"
+    ></div>
+
+
+    <div
+        class="cart-empty"
+        id="cartEmpty"
+    >
+        <div>🛒</div>
+        <h3>Your cart is empty</h3>
+        <p>Add some delicious food!</p>
+    </div>
+
+
+    <div
+        class="cart-summary"
+        id="cartSummary"
+    >
+
+        <div class="coupon-box">
+
+            <input
+                id="couponInput"
+                type="text"
+                placeholder="Coupon code"
+            >
+
+            <button id="applyCoupon">
+                Apply
+            </button>
+
+        </div>
+
+        <small class="coupon-hint">
+            Try <b>FOOD10</b> for 10% off
+        </small>
+
+
+        <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="subtotal">₹0</strong>
+        </div>
+
+        <div class="summary-row">
+            <span>Delivery fee</span>
+            <strong id="deliveryFee">₹0</strong>
+        </div>
+
+        <div class="summary-row discount-row">
+            <span>Discount</span>
+            <strong id="discount">-₹0</strong>
+        </div>
+
+        <div class="summary-total">
+            <span>Total</span>
+            <strong id="total">₹0</strong>
+        </div>
+
+
+        <button
+            class="checkout-btn"
+            id="checkoutBtn"
+        >
+            Proceed to Checkout →
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= CHECKOUT MODAL ================= -->
+
+<div
+    class="modal"
+    id="checkoutModal"
+>
+
+    <div class="modal-card">
+
+        <button
+            class="modal-close"
+            id="closeCheckout"
+        >
+            ✕
+        </button>
+
+        <h2>Complete your order</h2>
+
+        <p class="modal-subtitle">
+            Just a few details and your food is on the way.
+        </p>
+
+
+        <!-- DELIVERY TYPE -->
+
+        <div class="delivery-tabs">
+
+            <button
+                class="delivery-tab active"
+                data-type="Delivery"
+            >
+                🛵 Delivery
+            </button>
+
+            <button
+                class="delivery-tab"
+                data-type="Pickup"
+            >
+                🏪 Pickup
+            </button>
+
+        </div>
+
+
+        <form id="checkoutForm">
+
+            <div
+                id="addressFields"
+            >
+
+                <label>
+                    Full Name
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Enter your name"
+                        required
+                    >
+                </label>
+
+
+                <label>
+                    Phone Number
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        placeholder="10-digit mobile number"
+                        pattern="[0-9]{10}"
+                        required
+                    >
+                </label>
+
+
+                <label>
+                    Delivery Address
+                    <textarea
+                        id="customerAddress"
+                        placeholder="House no, street, area, city..."
+                        required
+                    ></textarea>
+                </label>
+
+            </div>
+
+
+            <label>
+                Payment Method
+
+                <select id="paymentMethod">
+
+                    <option value="Cash on Delivery">
+                        💵 Cash on Delivery
+                    </option>
+
+                    <option value="UPI">
+                        📱 UPI
+                    </option>
+
+                    <option value="Card">
+                        💳 Credit / Debit Card
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+                Special Instructions
+
+                <textarea
+                    id="instructions"
+                    placeholder="Less spicy, extra sauce, etc."
+                ></textarea>
+
+            </label>
+
+
+            <div class="checkout-total">
+
+                <span>Payable amount</span>
+
+                <strong id="checkoutTotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <button
+                class="place-order-btn"
+                type="submit"
+            >
+                Place Order 🎉
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ORDER TRACKING MODAL ================= -->
+
+<div
+    class="modal"
+    id="trackingModal"
+>
+
+    <div class="modal-card tracking-card">
+
+        <button
+            class="modal-close"
+            id="closeTracking"
+        >
+            ✕
+        </button>
+
+        <div class="tracking-icon">
+            🛵
+        </div>
+
+        <h2>Your order is on the way!</h2>
+
+        <p id="trackingRestaurant">
+            Restaurant
+        </p>
+
+
+        <div class="order-number">
+            Order #<span id="orderNumber">0000</span>
+        </div>
+
+
+        <div class="progress">
+
+            <div
+                class="progress-line"
+                id="progressLine"
+            ></div>
+
+            <div
+                class="progress-step active"
+                id="step1"
+            >
+                <span>✓</span>
+                <small>Placed</small>
+            </div>
+
+            <div
+                class="progress-step"
+                id="step2"
+            >
+                <span>🍳</span>
+                <small>Preparing</small>
+            </div>
+
+            <div
+                class="progress-step"
+                id="step3"
+            >
+                <span>🛵</span>
+                <small>On the way</small>
+            </div>
+
+            <div
+                class="progress-step"
+                id="step4"
+            >
+                <span>🏠</span>
+                <small>Delivered</small>
+            </div>
+
+        </div>
+
+
+        <div class="tracking-message">
+            <strong id="trackingStatus">
+                Order placed
+            </strong>
+
+            <p id="trackingText">
+                Your order has been received.
+            </p>
+        </div>
+
+
+        <div class="tracking-info">
+
+            <div>
+                <span>Amount</span>
+                <strong id="trackingAmount">
+                    ₹0
+                </strong>
+            </div>
+
+            <div>
+                <span>Payment</span>
+                <strong id="trackingPayment">
+                    Cash
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ORDER HISTORY MODAL ================= -->
+
+<div
+    class="modal"
+    id="ordersModal"
+>
+
+    <div class="modal-card orders-card">
+
+        <button
+            class="modal-close"
+            id="closeOrders"
+        >
+            ✕
+        </button>
+
+        <h2>My Orders</h2>
+
+        <p class="modal-subtitle">
+            Your recent FoodieGo orders
+        </p>
+
+        <div
+            id="orderHistory"
+            class="order-history"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div
+    class="toast"
+    id="toast"
+>
+    Added to cart!
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

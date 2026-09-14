@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ClassiFind - Buy & Sell Used Products</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="container navbar">
+
+        <div class="logo">
+            <div class="logo-box">🔄</div>
+            <span>Classi<span>Find</span></span>
+        </div>
+
+        <div class="location">
+            📍 Chennai
+        </div>
+
+        <div class="nav-buttons">
+
+            <button onclick="showFavorites()" class="nav-btn">
+                ♡ Favorites
+            </button>
+
+            <button onclick="openLogin()" class="nav-btn">
+                Login
+            </button>
+
+            <button onclick="openPostAd()" class="sell-btn">
+                + Sell
+            </button>
+
+        </div>
+
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <button onclick="showFavorites()">
+        ♡ Favorites
+    </button>
+
+    <button onclick="openLogin()">
+        👤 Login
+    </button>
+
+    <button onclick="openPostAd()">
+        ➕ Sell Product
+    </button>
+
+</div>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="container hero-container">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                BUY SMART • SELL EASY
+            </div>
+
+            <h1>
+                Buy & Sell
+                <span>Used Products</span>
+                Easily
+            </h1>
+
+            <p>
+                Discover amazing second-hand products at great prices
+                or sell things you no longer need.
+            </p>
+
+            <div class="search-box">
+
+                <span>🔍</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search mobiles, laptops, bikes..."
+                    oninput="searchProducts()"
+                >
+
+                <button onclick="searchProducts()">
+                    Search
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="hero-circle">
+                🛍️
+            </div>
+
+            <div class="floating-card first-card">
+                ⭐
+                <div>
+                    <strong>Trusted Sellers</strong>
+                    <small>Safe marketplace</small>
+                </div>
+            </div>
+
+            <div class="floating-card second-card">
+                💰
+                <div>
+                    <strong>Best Prices</strong>
+                    <small>Save more money</small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="category-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <p>EXPLORE</p>
+                <h2>Browse Categories</h2>
+            </div>
+
+            <span id="categoryCount">
+                20 products
+            </span>
+
+        </div>
+
+
+        <div class="categories">
+
+            <button class="category active" onclick="filterCategory('All', this)">
+                <div class="category-icon purple">✨</div>
+                <strong>All</strong>
+                <small>20 items</small>
+            </button>
+
+
+            <button class="category" onclick="filterCategory('Mobiles', this)">
+                <div class="category-icon blue">📱</div>
+                <strong>Mobiles</strong>
+                <small>3 items</small>
+            </button>
+
+
+            <button class="category" onclick="filterCategory('Electronics', this)">
+                <div class="category-icon violet">💻</div>
+                <strong>Electronics</strong>
+                <small>3 items</small>
+            </button>
+
+
+            <button class="category" onclick="filterCategory('Vehicles', this)">
+                <div class="category-icon orange">🚗</div>
+                <strong>Vehicles</strong>
+                <small>3 items</small>
+            </button>
+
+
+            <button class="category" onclick="filterCategory('Furniture', this)">
+                <div class="category-icon green">🛋️</div>
+                <strong>Furniture</strong>
+                <small>3 items</small>
+            </button>
+
+
+            <button class="category" onclick="filterCategory('Fashion', this)">
+                <div class="category-icon pink">👕</div>
+                <strong>Fashion</strong>
+                <small>3 items</small>
+            </button>
+
+
+            <button class="category" onclick="filterCategory('Books', this)">
+                <div class="category-icon yellow">📚</div>
+                <strong>Books</strong>
+                <small>2 items</small>
+            </button>
+
+
+            <button class="category" onclick="filterCategory('Others', this)">
+                <div class="category-icon red">📦</div>
+                <strong>Others</strong>
+                <small>3 items</small>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="products-section">
+
+    <div class="container">
+
+        <div class="products-header">
+
+            <div>
+                <p>DISCOVER</p>
+                <h2 id="listingTitle">
+                    Latest Listings
+                </h2>
+            </div>
+
+            <div class="sort-box">
+
+                <label for="sortSelect">Sort:</label>
+
+                <select id="sortSelect" onchange="sortProducts()">
+
+                    <option value="latest">
+                        Latest
+                    </option>
+
+                    <option value="low">
+                        Price: Low to High
+                    </option>
+
+                    <option value="high">
+                        Price: High to Low
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div id="productGrid" class="product-grid">
+        </div>
+
+
+        <div id="noResults" class="no-results">
+
+            <div>😕</div>
+
+            <h2>No Products Found</h2>
+
+            <p>
+                There are no products matching your search.
+            </p>
+
+            <button onclick="showAllProducts()">
+                Show All Products
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features-section">
+
+    <div class="container">
+
+        <div class="center-heading">
+
+            <p>WHY CLASSIFIND?</p>
+
+            <h2>
+                Everything you need to buy & sell
+            </h2>
+
+        </div>
+
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>Safe & Secure</h3>
+                <p>
+                    Connect with buyers and sellers safely.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Great Prices</h3>
+                <p>
+                    Find quality used products at affordable prices.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="feature-icon">📍</div>
+                <h3>Buy Nearby</h3>
+                <p>
+                    Find products available near your location.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Easy Selling</h3>
+                <p>
+                    Post your advertisement in just a few clicks.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container footer-content">
+
+        <div>
+
+            <div class="logo footer-logo">
+                <div class="logo-box">🔄</div>
+                <span>Classi<span>Find</span></span>
+            </div>
+
+            <p>
+                Buy smart. Sell easy.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#">About</a>
+            <a href="#">Safety</a>
+            <a href="#">Help</a>
+            <a href="#">Privacy</a>
+
+        </div>
+
+
+        <p>
+            © 2026 ClassiFind
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= PRODUCT DETAILS MODAL ================= -->
+
+<div class="modal-overlay" id="productModal">
+
+    <div class="modal product-modal">
+
+        <button class="close-button" onclick="closeModal('productModal')">
+            ×
+        </button>
+
+        <div id="productDetails">
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= POST AD MODAL ================= -->
+
+<div class="modal-overlay" id="postModal">
+
+    <div class="modal form-modal">
+
+        <button class="close-button" onclick="closeModal('postModal')">
+            ×
+        </button>
+
+        <div class="modal-title">
+
+            <div class="modal-title-icon">
+                📦
+            </div>
+
+            <div>
+                <h2>Post Your Product</h2>
+                <p>Sell your used product easily.</p>
+            </div>
+
+        </div>
+
+
+        <form id="postForm" onsubmit="addProduct(event)">
+
+            <div class="form-group">
+
+                <label>Product Name *</label>
+
+                <input
+                    type="text"
+                    id="productName"
+                    placeholder="Example: iPhone 13"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="productCategory">Category *</label>
+
+                    <select id="productCategory" required>
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option value="Mobiles">
+                            Mobiles
+                        </option>
+
+                        <option value="Electronics">
+                            Electronics
+                        </option>
+
+                        <option value="Vehicles">
+                            Vehicles
+                        </option>
+
+                        <option value="Furniture">
+                            Furniture
+                        </option>
+
+                        <option value="Fashion">
+                            Fashion
+                        </option>
+
+                        <option value="Books">
+                            Books
+                        </option>
+
+                        <option value="Others">
+                            Others
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Price ₹ *</label>
+
+                    <input
+                        type="number"
+                        id="productPrice"
+                        min="1"
+                        placeholder="25000"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Image URL</label>
+
+                <input
+                    type="url"
+                    id="productImage"
+                    placeholder="Paste image URL"
+                >
+
+                <small>
+                    You can leave this empty.
+                </small>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Description *</label>
+
+                <textarea
+                    id="productDescription"
+                    placeholder="Describe your product..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>Seller Name *</label>
+
+                    <input
+                        type="text"
+                        id="sellerName"
+                        placeholder="Your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Phone Number *</label>
+
+                    <input
+                        type="tel"
+                        id="sellerPhone"
+                        placeholder="9876543210"
+                        maxlength="10"
+                        pattern="[0-9]{10}"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Location *</label>
+
+                <input
+                    type="text"
+                    id="sellerLocation"
+                    placeholder="Chennai"
+                    required
+                >
+
+            </div>
+
+
+            <button type="submit" class="submit-button">
+                🚀 Publish Advertisement
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= LOGIN MODAL ================= -->
+
+<div class="modal-overlay" id="loginModal">
+
+    <div class="modal small-modal">
+
+        <button class="close-button" onclick="closeModal('loginModal')">
+            ×
+        </button>
+
+        <div class="login-icon">
+            👤
+        </div>
+
+        <h2>Welcome Back!</h2>
+
+        <p>
+            Login to your ClassiFind account.
+        </p>
+
+
+        <form onsubmit="loginUser(event)">
+
+            <div class="form-group">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="you@example.com"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    placeholder="Enter password"
+                    required
+                >
+
+            </div>
+
+
+            <button type="submit" class="submit-button">
+                Login
+            </button>
+
+        </form>
+
+        <small class="demo">
+            Demo: any valid email and password will work.
+        </small>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MESSAGE MODAL ================= -->
+
+<div class="modal-overlay" id="messageModal">
+
+    <div class="modal small-modal">
+
+        <button class="close-button" onclick="closeModal('messageModal')">
+            ×
+        </button>
+
+        <div class="login-icon">
+            💬
+        </div>
+
+        <h2>Contact Seller</h2>
+
+        <p id="sellerContactText"></p>
+
+
+        <form onsubmit="sendMessage(event)">
+
+            <div class="form-group">
+
+                <label>Your Message</label>
+
+                <textarea
+                    id="messageText"
+                    placeholder="Hi, is this product still available?"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button type="submit" class="submit-button">
+                Send Message
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast">
+
+    <span id="toastIcon">
+        ✓
+    </span>
+
+    <span id="toastMessage">
+        Success
+    </span>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
